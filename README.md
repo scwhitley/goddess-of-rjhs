@@ -5,12 +5,12 @@ Current site: https://goddessofrjhs.com/ (GoDaddy Website Builder). Brief: a com
 
 Plain HTML and CSS, no build needed to view. Deploy the repo root as-is (Netlify, GitHub Pages, etc).
 
-| Path | Concept | Package |
+| Path | Concept | Price |
 | --- | --- | --- |
 | `/` | Chooser page linking all three | n/a |
-| `/link/` | Link page with pop-ups (for social bios) | Link Page, from $100 |
-| `/one-page/` | One scrolling page with pop-ups | One-Pager, from $200 |
-| `/full/` | Five pages matching today's site: RJHS, Meet Janee, Individual Sessions, Events, Testimonials | Full Website, from $300 |
+| `/link/` | Link page with pop-ups (for social bios) | Site Refresh, from $75 |
+| `/one-page/` | One scrolling page with pop-ups | Site Refresh, from $75 |
+| `/full/` | Five pages matching today's site: RJHS, Meet Janee, Individual Sessions, Events, Testimonials | Site Refresh, from $75 |
 
 ## Editing
 - Contact details and the session packages live in `tools/site.template.js` (`BIZ`, `PACKAGES`).
