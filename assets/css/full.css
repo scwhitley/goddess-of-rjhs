@@ -54,7 +54,7 @@ body.full {
 .top-full .nav a:not(.btn)::after { background: #e4c793; }
 .top-full .nav-toggle { background: transparent; border-color: var(--line); }
 .top-full .nav-toggle span { background: #fff; }
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
   .top-full .nav { inset: 88px 0 auto 0; background: var(--paper); }
 }
 
@@ -104,3 +104,5 @@ body.full {
 .full .about-copy .pull { color: var(--violet); }
 .full .sec-head h2 em { color: var(--violet); }
 .full .foot { background: var(--plum); border-top: 1px solid var(--line); }
+.top-full .nav .nav-login { border-color: rgba(255,255,255,.25); }
+.top-full .nav .nav-login:hover { border-color: #e4c793; color: #e4c793; }

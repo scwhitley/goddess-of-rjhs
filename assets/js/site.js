@@ -11,6 +11,9 @@ const BIZ = {
   email: "goddessofrjhs@rjhsinc.com",
   address: "620 Dr.Calvin Jones Highway Suite 204, Wake Forest, NC 27587",
   booking: "https://goddess-of-rjhs.square.site",
+  /* Client Login: returning clients sign in to her Square site to see their bookings.
+     Swap in her exact Square sign-in page once customer accounts are turned on in Square Online. */
+  login: "https://goddess-of-rjhs.square.site",
   terms: "https://goddessofrjhs.com/terms-and-conditions",
   socials: [
     { name: "Instagram", url: "https://www.instagram.com/goddess_of_RJHS", icon: "ig" },
@@ -112,6 +115,7 @@ const ICON = {
   card: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg>',
   shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
   lock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="11" rx="3"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
+  user: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>',
   check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>',
   arrowL: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>',
   arrowR: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>',
@@ -206,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (k === "phone") { el.href = "tel:" + BIZ.tel; if (!el.textContent.trim()) el.textContent = BIZ.phone; }
     else if (k === "email") { el.href = "mailto:" + BIZ.email; if (!el.textContent.trim()) el.textContent = BIZ.email; }
     else if (k === "booking") el.href = BIZ.booking;
+    else if (k === "login") el.href = BIZ.login;
     else if (k === "terms") el.href = BIZ.terms;
     else if (k === "address") el.textContent = BIZ.address;
     else if (k === "map") el.href = "https://maps.google.com/?q=" + encodeURIComponent(BIZ.address);

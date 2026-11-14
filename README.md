@@ -28,6 +28,7 @@ Plain HTML and CSS, no build needed to view. Deploy the repo root as-is (Netlify
 - Photos: the homepage headshot and the Meet Janee photo (EXIF/GPS stripped). Her old banner is kept in `assets/img/original-banner.jpg` for reference only.
 
 ## Still to fill in
+- Client Login (header, footer, link page) points at her Square site for now. Replaces the GoDaddy account portal, which can't move off GoDaddy. Turn on customer accounts in Square Online, then set `BIZ.login` in `tools/site.template.js` to her exact Square sign-in page.
 - Session packages and prices (`PACKAGES`), from her Square booking page. Until then each page shows the booking button.
 - Events: the current Events page is empty, so the mockup shows an empty state with the newsletter signup.
 - Terms and Conditions links to her current page (its text isn't in the page source).

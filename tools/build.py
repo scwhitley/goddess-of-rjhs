@@ -225,7 +225,7 @@ def footer(links):
           <p style="max-width:34ch">RJHS Holistic Healing &amp; Wellness</p>
           <div class="socials" data-render="socials"></div>
         </div>
-        <div><h4>Explore</h4><ul>{nav}<li><a data-biz="terms" href="#" target="_blank" rel="noopener">Terms and Conditions</a></li></ul></div>
+        <div><h4>Explore</h4><ul>{nav}<li><a data-biz="login" href="#" target="_blank" rel="noopener">Client Login</a></li><li><a data-biz="terms" href="#" target="_blank" rel="noopener">Terms and Conditions</a></li></ul></div>
         <div><h4>Visit</h4><ul>
           <li><a data-biz="map" href="#" target="_blank" rel="noopener">620 Dr.Calvin Jones Highway Suite 204, Wake Forest, NC 27587</a></li>
           <li><a data-biz="phone" href="#">984-268-8660</a></li>
@@ -251,7 +251,7 @@ def header(links, current=None):
   <header class="top">
     <div class="wrap">
       {mark(links['home'])}
-      <nav class="nav" aria-label="Main">{items}<a class="btn btn-gold" data-biz="booking" href="#" target="_blank" rel="noopener">Book a Session</a></nav>
+      <nav class="nav" aria-label="Main">{items}<a class="nav-login" data-biz="login" href="#" target="_blank" rel="noopener"><span data-icon="user"></span>Client Login</a><a class="btn btn-gold" data-biz="booking" href="#" target="_blank" rel="noopener">Book a Session</a></nav>
       <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>"""
@@ -309,7 +309,7 @@ def full_header(links, current=None):
   <header class="top top-full">
     <div class="wrap">
       {mark(links['home'], 44)}
-      <nav class="nav" aria-label="Main">{items}<a class="btn btn-gold" data-biz="booking" href="#" target="_blank" rel="noopener">Book a Session</a></nav>
+      <nav class="nav" aria-label="Main">{items}<a class="nav-login" data-biz="login" href="#" target="_blank" rel="noopener"><span data-icon="user"></span>Client Login</a><a class="btn btn-gold" data-biz="booking" href="#" target="_blank" rel="noopener">Book a Session</a></nav>
       <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>"""
