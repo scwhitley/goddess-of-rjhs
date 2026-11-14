@@ -20,6 +20,7 @@ Plain HTML and CSS, no build needed to view. Deploy the repo root as-is (Netlify
 ## Design
 - Warm ivory paper, deep plum ink, her lavender kept as the soft accent, muted gold for Book buttons.
 - Cormorant Garamond headlines over DM Sans. Arch-shaped photo frames are the signature shape.
+- The full site has its own dark "night sanctuary" theme (`assets/css/full.css`): utility bar, full-bleed photo hero, arch page tiles and photo banners, so it reads clearly different from the light one-pager.
 
 ## Client content in use (copied verbatim)
 - Home hero quote, Meet Janee story, Individual Sessions welcome and booking information, Our Privacy Promise, all 10 testimonials, address, phone, email, socials, copyright line.

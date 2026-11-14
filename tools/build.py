@@ -295,14 +295,71 @@ write("one-page/index.html", f"""{head("Goddess of RJHS | RJHS Holistic Healing 
 fs = {"up": "../", "home": "index.html", "about": "meet-janee.html",
       "nav": [("RJHS", "index.html"), ("Meet Janee", "meet-janee.html"), ("Individual Sessions", "sessions.html"),
               ("Events", "events.html"), ("Testimonials", "testimonials.html")]}
-CSS2 = '<link rel="stylesheet" href="../assets/css/pages.css">'
+CSS2 = '<link rel="stylesheet" href="../assets/css/pages.css">\n  <link rel="stylesheet" href="../assets/css/full.css">'
+
+
+def full_header(links, current=None):
+    items = "".join(
+        f'<a href="{h}"{" aria-current=\"page\"" if n == current else ""}>{n}</a>' for n, h in links["nav"])
+    return f"""
+  <div class="util"><div class="wrap">
+    <span class="util-contact"><a data-biz="phone" href="#"></a><span aria-hidden="true">·</span><a data-biz="email" href="#"></a></span>
+    <div class="socials" data-render="socials"></div>
+  </div></div>
+  <header class="top top-full">
+    <div class="wrap">
+      {mark(links['home'], 44)}
+      <nav class="nav" aria-label="Main">{items}<a class="btn btn-gold" data-biz="booking" href="#" target="_blank" rel="noopener">Book a Session</a></nav>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>"""
+
+
+def banner(eyebrow, title_html, img="janee.jpg", pos="center 30%"):
+    return f"""
+  <section class="banner" style="background-image:linear-gradient(180deg, rgba(29,17,36,.35), #1d1124 96%), url('../assets/img/{img}');background-position:{pos}">
+    <div class="wrap"><span class="eyebrow">{eyebrow}</span><h1>{title_html}</h1></div>
+  </section>"""
+
+
+FULL_HERO = f"""
+  <section class="fhero">
+    <div class="fhero-photo"><img src="../assets/img/hero.jpg" alt="Janee, Goddess Of RJHS" width="993" height="1400"></div>
+    <div class="fhero-copy">
+      <span class="eyebrow">RJHS Holistic Healing &amp; Wellness</span>
+      <h1>Where Healing <em>Meets Spirit...</em></h1>
+      <blockquote>{HERO_QUOTE}<cite>- Janee, Goddess Of RJHS</cite></blockquote>
+      <div class="ctas">
+        <a class="btn btn-gold" data-biz="booking" href="#" target="_blank" rel="noopener"><span data-icon="cal"></span>Book Your Individual Session Today!</a>
+        <a class="btn btn-light" href="meet-janee.html">Meet Janee</a>
+      </div>
+      <p class="fhero-creds">{' · '.join(CREDS)}</p>
+    </div>
+  </section>"""
+
+EXPLORE = """
+  <section class="sec explore-sec">
+    <div class="wrap">
+      <div class="sec-head center"><span class="eyebrow">RJHS</span><h2>Explore <em>RJHS</em></h2></div>
+      <div class="explore">
+        <a class="tile tile-photo" href="meet-janee.html" style="background-image:linear-gradient(180deg, rgba(29,17,36,.1) 30%, rgba(29,17,36,.92) 88%), url('../assets/img/janee.jpg')">
+          <span class="tile-n">01</span><h3>Meet Janee</h3><p>Welcome to RJHS Holistic Healing &amp; Wellness.</p><span class="tile-go">Meet Janee</span></a>
+        <a class="tile" href="sessions.html">
+          <span class="tile-n">02</span><h3>Individual Sessions</h3><p>Welcome! We're So Glad You're Here!</p><span class="tile-go">Individual Sessions</span></a>
+        <a class="tile" href="events.html">
+          <span class="tile-n">03</span><h3>Events</h3><p>Stay connected</p><span class="tile-go">Events</span></a>
+        <a class="tile tile-photo" href="testimonials.html" style="background-image:linear-gradient(180deg, rgba(29,17,36,.1) 30%, rgba(29,17,36,.92) 88%), url('../assets/img/hero.jpg')">
+          <span class="tile-n">04</span><h3>Testimonials</h3><p>Empower Your Spirit with Janee</p><span class="tile-go">Testimonials</span></a>
+      </div>
+    </div>
+  </section>"""
 
 
 def page(file, title, current, body):
     write(f"full/{file}", f"""{head(title, "Where Healing Meets Spirit. RJHS Holistic Healing & Wellness with Janee, Goddess Of RJHS, in Wake Forest, NC.", "../", CSS2)}
-<body>
+<body class="full">
   {CONCEPT_BAR.format(up="../")}
-  {header(fs, current)}
+  {full_header(fs, current)}
   <main>{body}
   </main>
   {footer(fs)}
@@ -327,25 +384,25 @@ SESS_TEASER = f"""
   </section>"""
 
 page("index.html", "Goddess of RJHS | RJHS Holistic Healing & Wellness", "RJHS",
-     hero(fs) + about("../", full=False, more_href="meet-janee.html") + SESS_TEASER
+     FULL_HERO + EXPLORE + about("../", full=False, more_href="meet-janee.html") + SESS_TEASER
      + testimonials_carousel("testimonials.html") + privacy() + connect(form=False))
 
 page("meet-janee.html", "Meet Janee | Goddess of RJHS", "Meet Janee",
      f"""
-  <section class="page-hero"><span class="eyebrow">Meet Janee</span><h1>Your healing <em>is sacred.</em></h1></section>"""
+  {banner("Meet Janee", "Your healing <em>is sacred.</em>", "janee.jpg", "center 35%")}"""
      + about("../").replace('<section class="sec" id="meet-janee">', '<section class="sec" id="meet-janee" style="padding-top:20px">')
      + f"""
   <section class="sec lav"><div class="wrap cta-band">{SPARK}<h2>You do not have to navigate healing, grief, or spiritual growth <em>alone.</em></h2>
     <a class="btn btn-gold" data-biz="booking" href="#" target="_blank" rel="noopener"><span data-icon="cal"></span>Book Your Individual Session Today!</a></div></section>""")
 
 page("sessions.html", "Individual Sessions | Goddess of RJHS", "Individual Sessions",
-     """
-  <section class="page-hero"><span class="eyebrow">RJHS Holistic Healing &amp; Wellness</span><h1>Individual <em>Sessions</em></h1></section>"""
+     f"""
+  {banner("RJHS Holistic Healing &amp; Wellness", "Individual <em>Sessions</em>", "hero.jpg", "center 25%")}"""
      + sessions(form=True).replace('class="sec tint" id="sessions"', 'class="sec" id="sessions" style="padding-top:20px"'))
 
 page("events.html", "Events | Goddess of RJHS", "Events",
-     """
-  <section class="page-hero"><span class="eyebrow">RJHS Holistic Healing &amp; Wellness</span><h1><em>Events</em></h1></section>
+     f"""
+  {banner("RJHS Holistic Healing &amp; Wellness", "<em>Events</em>", "janee.jpg", "center 20%")}
   <section class="sec" style="padding-top:10px"><div class="wrap">
     <div class="card empty">
       <span data-icon="cal"></span>
@@ -357,8 +414,8 @@ page("events.html", "Events | Goddess of RJHS", "Events",
   </div></section>""")
 
 page("testimonials.html", "Testimonials | Goddess of RJHS", "Testimonials",
-     """
-  <section class="page-hero"><span class="eyebrow">Testimonials</span><h1>Empower Your Spirit <em>with Janee</em></h1></section>
+     f"""
+  {banner("Testimonials", "Empower Your Spirit <em>with Janee</em>", "hero.jpg", "center 30%")}
   <section class="sec" style="padding-top:10px"><div class="wrap"><div class="quote-grid" data-render="testimonial-full"></div></div></section>
   <section class="sec lav"><div class="wrap cta-band"><h2>Book Your Individual Session <em>Today!</em></h2>
     <a class="btn btn-gold" data-biz="booking" href="#" target="_blank" rel="noopener"><span data-icon="cal"></span>Book a Session</a></div></section>""")

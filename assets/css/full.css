@@ -1,0 +1,106 @@
+/* Full website only: "Night sanctuary". A dark plum, multi-page look so it reads clearly
+   different from the light, editorial one-pager. Same brand (plum, lavender, gold, arches),
+   flipped to dark, with a utility bar, full-bleed photo hero, page tiles and photo banners. */
+
+body.full {
+  --paper: #1d1124;
+  --cream: #241629;
+  --lilac: #2c1c36;
+  --lilac-2: #4a3459;
+  --violet: #cdaef0;
+  --plum: #120a17;
+  --plum-2: #2d1c38;
+  --ink: #f4ecf6;
+  --muted: #c2b1cb;
+  --line: rgba(236, 222, 245, .14);
+  --white: #26172e;
+  --shadow: 0 30px 60px -30px rgba(0, 0, 0, .8);
+  background: var(--paper);
+  color: var(--ink);
+}
+.full .btn-plum { background: #e9dcf3; color: #1d1124; }
+.full .btn-plum:hover { background: #fff; }
+.full .btn-ghost { border-color: rgba(255,255,255,.3); color: #fff; }
+.full .btn-ghost:hover { border-color: #fff; }
+.full .eyebrow { color: #e4c793; }
+.full .card { background: var(--white); }
+.full .field input, .full .subscribe input { background: #1a0f20; color: #fff; border-color: var(--line); }
+.full .field input::placeholder, .full .subscribe input::placeholder { color: #9d8aa8; }
+.full .form-done { background: #33213f; }
+.full .creds span { background: transparent; border-color: var(--lilac-2); }
+.full .socials a { background: transparent; color: #fff; }
+.full .socials a:hover { background: #fff; color: #1d1124; border-color: #fff; }
+.full .car-nav button { background: transparent; color: #fff; }
+.full .pkg-slot { border-color: var(--lilac-2); }
+.full dialog.pop { --paper: #f8f4ef; --ink: #2b1a33; --muted: #6c5f72; --line: #e2d8dd; --white: #fffdfb; --violet: #7d5ea3; color: #2b1a33; }
+
+/* Utility bar */
+.util { background: var(--plum); font-size: 13px; color: var(--muted); }
+.util .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 46px; }
+.util a { text-decoration: none; color: #eadff0; }
+.util a:hover { color: #fff; text-decoration: underline; }
+.util-contact { display: flex; flex-wrap: wrap; gap: 8px; }
+.util .socials { gap: 4px; }
+.util .socials a { width: 32px; height: 32px; border: 0; }
+.util .socials svg { width: 15px; height: 15px; }
+@media (max-width: 620px) { .util .socials { display: none; } .util .wrap { justify-content: center; } }
+
+/* Header (dark) */
+.top-full { background: rgba(29, 17, 36, .9); border-bottom-color: var(--line); }
+.top-full .wrap { height: 88px; }
+.top-full .mark b { color: #fff; }
+.top-full .nav a:not(.btn) { color: #eadff0; letter-spacing: .02em; }
+.top-full .nav a[aria-current="page"] { color: #e4c793; }
+.top-full .nav a:not(.btn)::after { background: #e4c793; }
+.top-full .nav-toggle { background: transparent; border-color: var(--line); }
+.top-full .nav-toggle span { background: #fff; }
+@media (max-width: 960px) {
+  .top-full .nav { inset: 88px 0 auto 0; background: var(--paper); }
+}
+
+/* Full-bleed split hero */
+.fhero { display: grid; grid-template-columns: 1fr 1fr; min-height: min(86vh, 820px); }
+.fhero-photo { position: relative; overflow: hidden; }
+.fhero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.fhero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 55%, var(--paper)), linear-gradient(0deg, rgba(29,17,36,.5), transparent 40%); }
+.fhero-copy { display: grid; align-content: center; gap: 24px; padding: clamp(40px, 6vw, 90px) clamp(16px, 6vw, 90px) clamp(40px, 6vw, 90px) clamp(16px, 3vw, 40px); }
+.fhero h1 { font-size: clamp(52px, 7.4vw, 104px); line-height: .95; color: #fff; }
+.fhero h1 em { display: block; color: var(--violet); }
+.fhero blockquote { margin: 0; font: italic 400 clamp(20px, 2vw, 24px)/1.45 var(--display); color: #eadff0; max-width: 520px; }
+.fhero cite { display: block; margin-top: 12px; font: 600 12px/1 var(--body); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-style: normal; }
+.fhero .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.fhero-creds { font-size: 13px; color: var(--muted); max-width: 520px; padding-top: 18px; border-top: 1px solid var(--line); }
+@media (max-width: 860px) {
+  .fhero { grid-template-columns: 1fr; }
+  .fhero-photo { height: 64vh; min-height: 380px; }
+  .fhero-photo::after { background: linear-gradient(0deg, var(--paper), transparent 45%); }
+  .fhero-copy { margin-top: -90px; position: relative; padding-top: 0; }
+}
+
+/* Explore tiles: the multi-page signature */
+.explore { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.tile { position: relative; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; min-height: 380px; padding: 26px; border-radius: 999px 999px 24px 24px; border: 1px solid var(--line); background: linear-gradient(180deg, #2f1e3a, #22142a); text-decoration: none; overflow: hidden; transition: transform .2s, border-color .2s; }
+.tile:hover { transform: translateY(-4px); border-color: #e4c793; }
+.tile-photo { background-size: cover; background-position: center 25%; }
+.tile-n { position: absolute; top: 34%; left: 50%; transform: translateX(-50%); font: italic 500 64px/1 var(--display); color: rgba(228, 199, 147, .35); }
+.tile-photo .tile-n { display: none; }
+.tile h3 { font-size: 32px; color: #fff; }
+.tile p { color: var(--muted); font-size: 14.5px; }
+.tile-go { margin-top: 6px; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #e4c793; }
+.tile-go::after { content: " →"; }
+@media (max-width: 1000px) { .explore { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .explore { grid-template-columns: 1fr; } .tile { min-height: 250px; } .tile-n { top: 22%; } }
+
+/* Photo banner for inner pages */
+.banner { position: relative; padding: clamp(110px, 16vw, 200px) 0 clamp(44px, 6vw, 70px); background-size: cover; background-repeat: no-repeat; }
+.banner .wrap { display: grid; gap: 16px; }
+.banner h1 { font-size: clamp(48px, 8.6vw, 110px); color: #fff; max-width: 14ch; }
+
+/* Section tints on dark */
+.full .tint { background: var(--cream); }
+.full .lav { background: linear-gradient(135deg, #2c1c36, #3a2448); }
+.full .privacy { background: var(--plum); }
+.full .about-copy .lead { color: #f4ecf6; }
+.full .about-copy .pull { color: var(--violet); }
+.full .sec-head h2 em { color: var(--violet); }
+.full .foot { background: var(--plum); border-top: 1px solid var(--line); }
